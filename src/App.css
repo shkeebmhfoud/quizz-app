@@ -1,0 +1,148 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-family: Ubuntu;
+}
+
+.center-elements {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.app {
+    width: 100%;
+    height: 100vh;
+    background-image: linear-gradient(45deg, white 0%, rgba(0, 0, 0, 0.1) 100%);
+    overflow: hidden;
+    perspective: 1000px;
+}
+
+.app .game-container {
+    width: 600px;
+    height: 300px;
+    background-color: white;
+    border-radius: 10px;
+    box-shadow: 0 0 0 2px black, 0px 0px 10px 1px black;
+    transform-style: preserve-3d;
+    transform: translate3d(0, 0, 100px);
+    padding: 20px;
+    perspective: 1000px;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-content: space-between;
+    /* display:none; */
+}
+
+@keyframes animate {
+    0% {
+        opacity: 0;
+        transform: translate3d(-100px, 0, 0);
+    }
+
+    100% {
+        opacity: 1;
+        transform: translate3d(0px, 0, 100px);
+    }
+}
+
+@keyframes animate-2 {
+    0% {
+        opacity: 1;
+        transform: translate3d(0, 0, 100px);
+    }
+
+    100% {
+        opacity: 0;
+        transform: translate3d(-100px, 0, 0px);
+    }
+}
+
+@keyframes animate-1 {
+    0% {
+        opacity: 0;
+        transform: translate3d(100px, 0, 0);
+    }
+
+    100% {
+        opacity: 1;
+        transform: translate3d(0px, 0, 100px);
+    }
+}
+
+.game-container .game-component {
+    width: calc((100% - 10%)/6);
+    height: calc((100% - 10%)/4);
+    position: relative;
+    transform-style: preserve-3d;
+    border-radius: 10px;
+    /* transform: rotateY(180deg) translateX(-100%); */
+    transition: transform 1s;
+    transform-origin: left;
+}
+
+.game-component .face {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    backface-visibility: hidden;
+    border-radius: 10px;
+}
+
+.front {
+    background-color: black;
+}
+
+.back {
+    background-color: #eee;
+    font-weight: bolder;
+    transform: rotateY(-180deg);
+    box-shadow: 0 0 0 2px;
+    transition: box-shadow 1s;
+}
+
+@keyframes rotate {
+    0% {
+        transform: rotateY(0deg) translateX(0%);
+    }
+
+    100% {
+        transform: rotateY(180deg) translateX(-100%);
+    }
+}
+
+@keyframes rotate-1 {
+    0% {
+        transform: rotateY(0deg) translateX(0%);
+    }
+
+    100% {
+        transform: rotateY(180deg) translateX(-100%);
+    }
+}
+
+@keyframes rotate-2 {
+    0% {
+        transform: rotateY(180deg) translateX(-100%);
+    }
+
+    100% {
+        transform: rotateY(0deg) translateX(0%);
+    }
+}
+
+.app .end-game {
+    width: 600px;
+    height: 300px;
+    background-color: white;
+    border-radius: 10px;
+    box-shadow: 0 0 0 2px;
+    display: grid;
+    place-items: center;
+    font-size: 32px;
+    font-weight: bolder;
+    display: none;
+    opacity: 0;
+    transform: translate3d(100px, 0, 0);
+}
